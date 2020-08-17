@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://bootswatch.com/4/spacelab/bootstrap.min.css" />
+    <title>Liste des articles</title>
+</head>
+
+<body>
+    <div class="row mt-5" align="center">
+        <div class="col-md-6 m-auto">
+            <div class="card card-body" align="left">
+                <h1 class="text-center mb-3"><i class="fas fa-sign-in-alt"></i> Bienvenue dans votre épicerie</h1>
+                <ul>
+                    <% items.forEach(function(items) { %>
+                    <li>Nom du produit = <%= items.name %>, Quantité = <%= items.qte %>
+                        , Date de commande = <%= items.date %> </li>
+                    <% }); %>
+                </ul>
+            </div>
+            <div class="card card-body" align="left">
+                <form name="maForm" action="/items/create" method="post">
+                    <div class="form-group">
+                        <label>Rayon&nbsp;</label>
+                        <SELECT name="rayon" size="1">
+                            <OPTION>Produits laitiers
+                            <OPTION>Boulangerie
+                            <OPTION>Boucherie
+                        </SELECT>
+                        &nbsp;,&nbsp;&nbsp;
+                        <label>Nom du produit&nbsp;</label>
+                        <SELECT name="name" size="1">
+                            <OPTION>Brique de lait
+                            <OPTION>Camembert
+                            <OPTION>Yaourt
+                            <OPTION>Pain Complet
+                            <OPTION>Pain sans gluten
+                            <OPTION>Pain classique
+                            <OPTION>Entrecôte
+                            <OPTION>barquette Poitrine de poulet
+                            <OPTION>barquette Viande hachée
+                        </SELECT>
+                        &nbsp;,&nbsp;&nbsp;&nbsp;
+                        <label>Quantité&nbsp;</label>
+                        <SELECT name="qte" size="1">
+                            <OPTION>1
+                            <OPTION>2
+                            <OPTION>3
+                            <OPTION>4
+                            <OPTION>5
+                        </SELECT>
+                        &nbsp;,&nbsp;&nbsp;&nbsp;
+                        <label>Date de commande&nbsp;</label>
+                        <input type="date" id="date" name="date" value="" />
+                        <br><br>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-primary">Créer votre commande</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script>
+        /*afficher la date actuelle par défaut*/
+        window.onload = function () {
+            aujourdhui = new Date();
+            document.getElementById('date').valueAsDate = aujourdhui;
+            calculerMontant();
+        }
+    </script>
+</body>
+
+</html>

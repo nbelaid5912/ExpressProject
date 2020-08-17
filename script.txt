@@ -1,0 +1,10 @@
+use grocery
+
+db.users.insertOne({_id:1,username:"belaid@gmail.com",pwd:"123"});
+{ "acknowledged" : true, "insertedId" : 1 }
+db.items.insertOne({_id:1,name:"camembert",qte:2,rayon:"Produits laitiers",date:"2020-01-12",customer:"belaid@gmail.com"});
+{ "acknowledged" : true, "insertedId" : 1 }
+db.items.insertOne({_id:2,name:"pain blanc",qte:2,rayon:"Boulangerie",date:"2020-01-12",customer:"belaid@gmail.com"});
+{ "acknowledged" : true, "insertedId" : 2 }
+db.items.insertOne({_id:3,name:"Entrecôte",qte:1,rayon:"Boucherie",date:"2020-01-12",customer:"belaid@gmail.com"});
+{ "acknowledged" : true, "insertedId" : 3 }

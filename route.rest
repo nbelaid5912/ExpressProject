@@ -1,0 +1,21 @@
+GET http://localhost:3000/subscribers
+###
+POST http://localhost:3000/subscribers
+Content-Type: application/json
+
+{
+"name": "Bélaid",
+"subscribedChannel": "Bélaid Channel"
+}
+###
+GET http://localhost:3000/subscribers/5de7d4a10d33b82e40636a49
+###
+DELETE http://localhost:3000/subscribers/5de7d4310d33b82e40636a48
+###
+PATCH http://localhost:3000/subscribers/5de7d4a10d33b82e40636a49
+Content-Type: application/json
+
+{
+"name": "Kurtozi"
+}
+###

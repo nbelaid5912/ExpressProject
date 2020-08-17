@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Recherche</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script>
+
+        function traiter() {
+            //event.preventDefault();
+            console.log("clic")
+            // const id = $('#id_sub').val;
+            $.ajax({
+                url: ' http://localhost:3000/subscribers/5de7d4a10d33b82e40636a49',
+                method: 'GET'
+            }).done(function (res) {
+
+                console.log('id from ajax call is ', res);
+                // window.location.reload();
+            }).fail(function (err) {
+                console.log('error...ajax');
+            }
+            )
+        };
+
+    </script>
+</head>
+
+<body>
+    <h1>Recherche</h1>
+
+    <input type="text" id="id_sub" />
+    <input type="button" id="rechBtn" value="Rechercher" onclick="traiter()" />
+    <div id="res"></div>
+
+    <a href="/">Accueil</a>
+</body>
+
+</html>
